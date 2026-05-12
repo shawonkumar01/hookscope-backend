@@ -4,7 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { EndpointsModule } from './endpoints/endpoints.module';
+import { RequestsModule } from './requests/requests.module';
 import { WebhookModule } from './webhook/webhook.module';
+import { RedisModule } from './common/redis/redis.module';
 
 @Module({
   imports: [
@@ -22,9 +24,11 @@ import { WebhookModule } from './webhook/webhook.module';
         synchronize: true,
       }),
     }),
+    RedisModule,
     AuthModule,
     UsersModule,
     EndpointsModule,
+    RequestsModule,
     WebhookModule,
   ],
 })
